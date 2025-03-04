@@ -1,0 +1,182 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage{amsmath, amssymb, amsthm} % Mathematical symbols and environments
+\usepackage{graphicx} % For including images
+\usepackage{algorithm} % For algorithm environment
+\usepackage{algpseudocode} % For pseudocode
+\usepackage{tikz} % For drawing automata, graphs
+\usepackage{fancyhdr} % For header and footer
+\usepackage{hyperref} % For hyperlinks
+\usepackage{enumitem} % For customized lists
+\usepackage[margin=1in]{geometry} % Page margins
+
+% Define theorem-like environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% Header and footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{} % Course name goes here
+\lhead{} % Lecture number goes here
+\cfoot{\thepage}
+
+% Title information
+\title{Lecture 2 - Propositional Logic} % Course title
+\author{} % Your name
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% Your content goes here
+\section{Propositional Logic}
+\subsection{Propositions}
+\begin{definition}
+A \textbf{proposition} is a statement that is either true or false, but not both.
+\end{definition}
+
+\subsection{Logical Operations}
+A nice way to represent operations on propositions is by using truth tables which lists all the possible values of arguments and states, for each, the resulting value.
+% Negation
+\begin{definition}
+The \textbf{negation} of a proposition $p$ is denoted by $\neg p$ and is true if $p$ is false, and false if $p$ is true.
+\end{definition}
+
+% Conjunction
+\begin{definition}
+The \textbf{conjunction} (and) of propositions $p$ and $q$ is denoted by $p \land q$ and is true if both $p$ and $q$ are true, and false otherwise.
+This is often called
+\end{definition}
+
+% Disjunction
+\begin{definition}
+The \textbf{disjunction} (inclusive OR) of propositions $p$ and $q$ is denoted by $p \lor q$ and is true if at least one of $p$ and $q$ is true, and false otherwise.
+\end{definition}
+
+% De Morgan Laws
+\subsection{De Morgan's Laws}
+Conjunction and disjunction are related by De Morgan's laws.
+\begin{theorem}
+\textbf{De Morgan's Laws}:
+\begin{align*}
+\neg (p \land q) &\equiv \neg p \lor \neg q \\
+\neg (p \lor q) &\equiv \neg p \land \neg q
+\end{align*}
+\end{theorem}
+
+There is also an intuitive way to think about it. A fun example: ``I will not eat my vegetables and I will not eat my fruits'' is equivalent to ``I will not eat my vegetables or fruits''.
+
+You can also prove De Morgan's laws using truth tables.
+
+% Implication
+\subsection{Implication}
+\begin{definition}
+The \textbf{implication} of propositions $p$ and $q$ is denoted by $p \rightarrow q$ and is true if $p$ is false or $q$ is true, and false otherwise.
+\end{definition}
+
+An example: ``If it is raining, then I will take an umbrella''. If I do take an umbrella even if it doesn't rain, the statement is still true.
+
+Implication is not neccessarily causation. For example, ``If I am in Istanbul, then I am in Turkey'' is true even if I am not in Istanbul.
+
+Equivalent words: "if...then", "only if", "implies", "is sufficient for", "is necessary for".
+
+% Biconditional
+\subsection{Biconditional / bi-implication}
+\begin{definition}
+The \textbf{biconditional} of propositions $p$ and $q$ is denoted by $p \leftrightarrow q$ and is true if $p$ and $q$ have the same truth value, and false otherwise.
+\end{definition}
+
+Equivalent words: "if and only if", "iff", "is equivalent to". An example of this is that a right-angle triangle must satisfy $a^2 + b^2 = c^2$
+
+% Tautologies and logical equivalence
+\subsection{Tautologies and Logical Equivalence}
+\begin{definition}
+A \textbf{tautology} is a proposition that is always true, regardless of the truth values of its variables.
+\end{definition}
+
+In other words, the right hand column of the truth table is all true.
+
+\begin{definition}
+    Two statements are \textbf{logically equivalent} if their truth tables are identical.
+\end{definition}
+
+If $P$ and $Q$ are logically equivalent, $P \leftrightarrow Q$ is a tautology.
+
+% Laws of Boolean Algebra
+\subsection{Laws of Boolean Algebra}
+A full listing of laws of Boolean algebra:
+
+\vspace{-2em}
+
+\begin{align*}
+\neg \text{True} &= \text{False} & \neg \neg P &= P \\
+P \land Q &= Q \land P & P \lor Q &= Q \lor P \\
+(P \land Q) \land R &= P \land (Q \land R) & (P \lor Q) \lor R &= P \lor (Q \lor R) \\
+P \land P &= P & P \lor P &= P \\
+P \land \neg P &= \text{False} & P \lor \neg P &= \text{True} \\
+P \land \text{True} &= P & P \lor \text{False} &= P \\
+P \land \text{False} &= \text{False} & P \lor \text{True} &= \text{True}
+\end{align*}
+
+\begin{center}
+\textbf{Distributive Laws}
+\end{center}
+
+\vspace{-3em}
+
+\begin{align*}
+P \land (Q \lor R) &= (P \land Q) \lor (P \land R) \\
+P \lor (Q \land R) &= (P \lor Q) \land (P \lor R)
+\end{align*}
+
+\begin{center}
+\textbf{De Morgan's Laws}
+\end{center}
+
+\vspace{-3em}
+
+\begin{align*}
+\neg (P \lor Q) &= \neg P \land \neg Q \\
+\neg (P \land Q) &= \neg P \lor \neg Q
+\end{align*}
+
+% Disjunctive Normal Form
+\subsection{Disjunctive Normal Form}
+
+\begin{definition}
+A boolean expression is in \textbf{disjunctive normal form} if it is a disjunction of one or more conjunctions of literals. This is like the 'expanded' form of a boolean expression.
+\end{definition}
+* A \textbf{literal} is a variable or its negation. \\[-0.5em]
+
+Problem with DNF is that, in real life, logical rules are not usually specified
+in a form that is amenable to DNF. They are typically described by listing conditions that
+must be satisfied together. 
+
+% Conjunctive Normal Form
+\subsection{Conjunctive Normal Form}
+
+When DNF is a disjunction of literals, CNF is simply a conjunction of literals.
+
+\begin{definition}
+A boolean expression is in \textbf{conjunctive normal form} if it is a conjunction of one or more disjunctions of literals.
+\end{definition}
+
+Each disjunction of literals is called a \textbf{clause}.
+
+% Representing Logical Statements
+\subsection{Representing Logical Statements}
+
+
+
+
+\end{document}
