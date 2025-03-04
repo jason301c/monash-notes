@@ -1,35 +1,43 @@
+% NOTES TEMPLATE V1.0 ------------------------------------------------------
 \documentclass[12pt,a4paper]{article}
 
 % Packages
-\usepackage{amsmath, amssymb, amsthm} % Mathematical symbols and environments
-\usepackage{graphicx} % For including images
-\usepackage{algorithm} % For algorithm environment
-\usepackage{algpseudocode} % For pseudocode
-\usepackage{tikz} % For drawing automata, graphs
-\usepackage{fancyhdr} % For header and footer
-\usepackage{hyperref} % For hyperlinks
-\usepackage{enumitem} % For customized lists
-\usepackage[margin=1in]{geometry} % Page margins
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{algorithm} 
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
 
-% Define theorem-like environments
+% Theorem environments
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+
+% Important highlight command
+\newcommand{\important}[1]{\textcolor{blue}{#1}}
+\usepackage{xcolor}
 
 % Header and footer setup
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{} % Course name goes here
-\lhead{} % Lecture number goes here
+\rhead{FIT2014 - Theory of Computation} % Course name goes here
+\lhead{Lecture 02} % Lecture number goes here
 \cfoot{\thepage}
 
 % Title information
-\title{Lecture 2 - Propositional Logic} % Course title
-\author{} % Your name
+\title{Lecture 2 - Propositional Logic} % Note title
+\author{Jason Alexander} % Your name
 \date{\today}
 
 \begin{document}
@@ -38,7 +46,8 @@
 \tableofcontents
 \newpage
 
-% Your content goes here
+% NOTES TEMPLATE ENDS HERE --------------------------------------------------------
+
 \section{Propositional Logic}
 \subsection{Propositions}
 \begin{definition}
@@ -116,7 +125,7 @@ If $P$ and $Q$ are logically equivalent, $P \leftrightarrow Q$ is a tautology.
 \subsection{Laws of Boolean Algebra}
 A full listing of laws of Boolean algebra:
 
-\vspace{-2em}
+\vspace{-1em}
 
 \begin{align*}
 \neg \text{True} &= \text{False} & \neg \neg P &= P \\
@@ -132,7 +141,7 @@ P \land \text{False} &= \text{False} & P \lor \text{True} &= \text{True}
 \textbf{Distributive Laws}
 \end{center}
 
-\vspace{-3em}
+\vspace{-2em}
 
 \begin{align*}
 P \land (Q \lor R) &= (P \land Q) \lor (P \land R) \\
@@ -143,7 +152,7 @@ P \lor (Q \land R) &= (P \lor Q) \land (P \lor R)
 \textbf{De Morgan's Laws}
 \end{center}
 
-\vspace{-3em}
+\vspace{-2em}
 
 \begin{align*}
 \neg (P \lor Q) &= \neg P \land \neg Q \\
@@ -156,7 +165,10 @@ P \lor (Q \land R) &= (P \lor Q) \land (P \lor R)
 \begin{definition}
 A boolean expression is in \textbf{disjunctive normal form} if it is a disjunction of one or more conjunctions of literals. This is like the 'expanded' form of a boolean expression.
 \end{definition}
-* A \textbf{literal} is a variable or its negation. \\[-0.5em]
+
+\begin{remark}
+A \textbf{literal} is a variable or its negation.
+\end{remark}
 
 Problem with DNF is that, in real life, logical rules are not usually specified
 in a form that is amenable to DNF. They are typically described by listing conditions that

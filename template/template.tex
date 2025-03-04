@@ -1,24 +1,32 @@
+% NOTES TEMPLATE V1.0 --------------------------------------------------------
 \documentclass[12pt,a4paper]{article}
 
 % Packages
-\usepackage{amsmath, amssymb, amsthm} % Mathematical symbols and environments
-\usepackage{graphicx} % For including images
-\usepackage{algorithm} % For algorithm environment
-\usepackage{algpseudocode} % For pseudocode
-\usepackage{tikz} % For drawing automata, graphs
-\usepackage{fancyhdr} % For header and footer
-\usepackage{hyperref} % For hyperlinks
-\usepackage{enumitem} % For customized lists
-\usepackage[margin=1in]{geometry} % Page margins
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{algorithm} 
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
 
-% Define theorem-like environments
+% Theorem environments
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+
+% Important highlight command
+\newcommand{\important}[1]{\textcolor{blue}{#1}}
+\usepackage{xcolor}
 
 % Header and footer setup
 \pagestyle{fancy}
@@ -28,8 +36,8 @@
 \cfoot{\thepage}
 
 % Title information
-\title{} % Course title
-\author{} % Your name
+\title{} % Note title
+\author{Jason Alexander} % Your name
 \date{\today}
 
 \begin{document}
@@ -38,6 +46,6 @@
 \tableofcontents
 \newpage
 
-% Your content goes here
+% NOTES TEMPLATE ENDS HERE --------------------------------------------------------
 
 \end{document}
